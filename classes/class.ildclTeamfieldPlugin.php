@@ -8,7 +8,7 @@
 require_once 'Customizing/global/plugins/Modules/DataCollection/FieldTypeHook/dclTeamfield/vendor/autoload.php';
 require_once('./Modules/DataCollection/classes/Fields/Plugin/class.ilDclFieldTypePlugin.php');
 
-class ilDclTeamfieldPlugin extends \ilDclFieldTypePlugin
+final class ilDclTeamfieldPlugin extends \ilDclFieldTypePlugin
 {
     const PLUGIN_NAME = "dclTeamfield";
 
