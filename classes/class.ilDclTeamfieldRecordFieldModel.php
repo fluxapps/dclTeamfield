@@ -30,4 +30,26 @@ class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldModel
         $this->setValue(null);
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getExportValue()
+    {
+        return $this->getValue();
+    }
+
+    /**
+     * @param $excel
+     * @param $row
+     * @param $col
+     *
+     * @return array|int|int[]
+     */
+    public function getValueFromExcel($excel, $row, $col)
+    {
+        $value = $value = $excel->getCell($row, $col);
+        return $value;
+    }
+
+
 }
