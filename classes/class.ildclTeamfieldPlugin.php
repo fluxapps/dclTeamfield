@@ -10,7 +10,7 @@ require_once('./Modules/DataCollection/classes/Fields/Plugin/class.ilDclFieldTyp
 
 class ilDclTeamfieldPlugin extends \ilDclFieldTypePlugin
 {
-    const PLUGIN_NAME = "DclTeamfield";
+    const PLUGIN_NAME = "dclTeamfield";
 
     /**
      * ilDclTeamfieldPlugin constructor.

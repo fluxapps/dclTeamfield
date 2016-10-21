@@ -1,0 +1,9 @@
+button_apply_settings#:#Übernehmen
+button_cancel_settings#:#Abbrechen
+config_tab_main#:#Konfiguration
+settings_general#:#Allgemein
+field_edit_reference_table#:#Referenz zu Tabelle
+no_magic_team_table_set#:#Keine Team Tabelle konfiguriert unter der Feldeinstellung der Tabelle.
+no_team_found#:#Kein Team gefunden.
+no_team_field_found_in_table#:#Es konnte keine Spalte mit dem Namen Team gefunden werden. Bitte überprüfen Sie die Team Tabelle.
+no_group_field_found_in_table#:#Es konnte keine Spalte mit dem Namen Group gefunden werden. Bitte überprüfen Sie die Team Tabelle.
