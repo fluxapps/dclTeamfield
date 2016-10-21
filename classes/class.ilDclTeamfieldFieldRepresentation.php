@@ -12,6 +12,8 @@ require_once 'Modules/DataCollection/classes/Fields/Reference/class.ilDclReferen
  */
 class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentation
 {
+    const FILTER_DISPLAY_TEAM = 1;
+
     private $pl;
     private $dic;
 
@@ -73,14 +75,10 @@ class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentatio
     public function addFilterInputFieldToTable(ilTable2GUI $table)
     {
         $input = $table->addFilterItemByMetaType("filter_" . $this->getField()->getId(), ilTable2GUI::FILTER_SELECT, false, $this->getField()->getId());
-        $options = array();
-        $teamRecords = RoleMapper::getAllTeamNameFieldRecords($this->getField());
 
-        foreach ($teamRecords as $record) {
-            $options[$record->getId()] = $record->getValue();
-        }
-        // Sort by values ASC
-        asort($options);
+        $options = array();
+        $options[self::FILTER_DISPLAY_TEAM] = $this->pl->txt("filter_option_team");
+
         $options = array('' => $this->lng->txt('dcl_any')) + $options;
         $input->setOptions($options);
 

@@ -7,3 +7,4 @@ no_magic_team_table_set#:#No team magic table selected! Please set a valid table
 no_team_found#:#No team found.
 no_team_field_found_in_table#:#A column named Team could not be found in the Team Table. Please make sure the column exists.
 no_group_field_found_in_table#:#A column named Group could not be found in the Team Table. Please make sure the column exists.
+filter_option_team#:#Team

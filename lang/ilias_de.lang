@@ -7,3 +7,4 @@ no_magic_team_table_set#:#Keine Team Tabelle konfiguriert unter der Feldeinstell
 no_team_found#:#Kein Team gefunden.
 no_team_field_found_in_table#:#Es konnte keine Spalte mit dem Namen Team gefunden werden. Bitte überprüfen Sie die Team Tabelle.
 no_group_field_found_in_table#:#Es konnte keine Spalte mit dem Namen Group gefunden werden. Bitte überprüfen Sie die Team Tabelle.
+filter_option_team#:#Team
