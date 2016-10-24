@@ -8,7 +8,7 @@ require_once 'Modules/DataCollection/classes/Fields/Reference/class.ilDclReferen
  *
  * @author  Nicolas Schäfli <ns@studer-raimann.ch>
  */
-class ilDclTeamfieldRecordRepresentation extends ilDclReferenceRecordRepresentation
+final class ilDclTeamfieldRecordRepresentation extends ilDclReferenceRecordRepresentation
 {
     /**
      * @inheritDoc

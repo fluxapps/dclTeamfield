@@ -10,14 +10,22 @@ require_once 'Modules/DataCollection/classes/Fields/Reference/class.ilDclReferen
  *
  * @author  Nicolas Schäfli <ns@studer-raimann.ch>
  */
-class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldModel
+final class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldModel
 {
+    /**
+     * The excel import mode tells the setValue method to use the $value parameter
+     * instead of the own team discovery mechanics.
+     *
+     * @var $excelImportMode bool
+     */
+    private $excelImportMode;
+
     /**
      * @inheritDoc
      */
     public function setValue($value, $omit_parsing = false)
     {
-        $teamName = RoleMapper::mapToTeamName($this->getField());
+        $teamName = ($this->isExcelImportMode()) ? $value : RoleMapper::mapToTeamName($this->getField());
         parent::setValue($teamName, true);
     }
 
@@ -39,17 +47,30 @@ class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldModel
     }
 
     /**
-     * @param $excel
-     * @param $row
-     * @param $col
+     * Read data from excel cell.
      *
-     * @return array|int|int[]
+     * @param \ilExcel  $excel  Excel sheet.
+     * @param int       $row    Excel row.
+     * @param int       $col    Excel column.
+     *
+     * @return string
      */
     public function getValueFromExcel($excel, $row, $col)
     {
+        //enable excel import mode
+        $this->excelImportMode = true;
+
         $value = $value = $excel->getCell($row, $col);
         return $value;
     }
 
-
+    /**
+     * Returns true if the excel import mode is enabled otherwise false.
+     *
+     * @return boolean
+     */
+    public function isExcelImportMode()
+    {
+        return $this->excelImportMode;
+    }
 }

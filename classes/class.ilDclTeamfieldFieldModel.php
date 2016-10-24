@@ -11,7 +11,7 @@ require_once 'Customizing/global/plugins/Modules/DataCollection/FieldTypeHook/dc
 require_once("Modules/DataCollection/classes/Fields/Reference/class.ilDclReferenceFieldModel.php");
 require_once("./Modules/DataCollection/classes/Helpers/class.ilDclRecordQueryObject.php");
 
-class ilDclTeamfieldFieldModel extends \ilDclReferenceFieldModel
+final class ilDclTeamfieldFieldModel extends \ilDclReferenceFieldModel
 {
 
     /**

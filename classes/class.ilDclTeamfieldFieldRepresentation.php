@@ -10,7 +10,7 @@ require_once 'Modules/DataCollection/classes/Fields/Reference/class.ilDclReferen
  *
  * @author  Nicolas Schäfli <ns@studer-raimann.ch>
  */
-class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentation
+final class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentation
 {
     const FILTER_DISPLAY_TEAM = 1;
 
@@ -58,6 +58,15 @@ class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentatio
         return $opt;
     }
 
+    /**
+     * GUI input for the record creation mask.
+     * This input field is disabled because the value will be automatically set by ILIAS.
+     *
+     * @param ilPropertyFormGUI $form
+     * @param int               $record_id      Current record id.
+     *
+     * @return ilTextInputGUI
+     */
     public function getInputField(ilPropertyFormGUI $form, $record_id = 0)
     {
         $input = new ilTextInputGUI($this->getField()->getTitle(), 'field_' . $this->getField()->getId());
@@ -72,6 +81,13 @@ class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldRepresentatio
         return $input;
     }
 
+    /**
+     * Adds the filter input GUI to the table.
+     *
+     * @param ilTable2GUI $table
+     *
+     * @return null
+     */
     public function addFilterInputFieldToTable(ilTable2GUI $table)
     {
         $input = $table->addFilterItemByMetaType("filter_" . $this->getField()->getId(), ilTable2GUI::FILTER_SELECT, false, $this->getField()->getId());
