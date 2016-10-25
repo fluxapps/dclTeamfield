@@ -99,7 +99,7 @@ class RoleMapper
         $teamField = $table->getFieldByTitle(self::TEAM_COLUMN_NAME);
         if(is_null($teamField))
         {
-            $pl = $DIC[\ilDclTeamfieldPlugin::PLUGIN_NAME];
+            $pl = \ilDclTeamfieldPlugin::getInstance();
 
             /**
              * @var $error \ilErrorHandling
@@ -125,7 +125,7 @@ class RoleMapper
         $groupField = $table->getFieldByTitle(self::GROUP_COLUMN_NAME);
         if(is_null($groupField))
         {
-            $pl = $DIC[\ilDclTeamfieldPlugin::PLUGIN_NAME];
+            $pl = \ilDclTeamfieldPlugin::getInstance();
 
             /**
              * @var $error \ilErrorHandling
@@ -153,7 +153,7 @@ class RoleMapper
         //check if the reference table is set.
         if(is_null($table_id))
         {
-            $pl = $DIC[\ilDclTeamfieldPlugin::PLUGIN_NAME];
+	        $pl = \ilDclTeamfieldPlugin::getInstance();
 
             /**
              * @var $error \ilErrorHandling
