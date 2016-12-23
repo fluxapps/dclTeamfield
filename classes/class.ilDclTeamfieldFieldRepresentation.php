@@ -65,11 +65,11 @@ final class ilDclTeamfieldFieldRepresentation extends ilDclReferenceFieldReprese
      * @param ilPropertyFormGUI $form
      * @param int               $record_id      Current record id.
      *
-     * @return ilTextInputGUI
+     * @return ilHiddenInputGUI
      */
     public function getInputField(ilPropertyFormGUI $form, $record_id = 0)
     {
-        $input = new ilTextInputGUI($this->getField()->getTitle(), 'field_' . $this->getField()->getId());
+        $input = new ilHiddenInputGUI($this->getField()->getTitle(), 'field_' . $this->getField()->getId());
         $input->setDisabled(true);
 
         $teamName = RoleMapper::mapToTeamName($this->getField());
