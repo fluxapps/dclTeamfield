@@ -25,7 +25,13 @@ final class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldMode
      */
     public function setValue($value, $omit_parsing = false)
     {
-        $teamName = ($this->isExcelImportMode()) ? $value : RoleMapper::mapToTeamName($this->getField());
+    	if ($this->isExcelImportMode()) {
+    		$teamName = $value;
+	    } else if ($this->getValue()) { // this is to avoid setting teamfield on editing records, but only on creation
+	    	$teamName = $this->getValue();
+	    } else {
+	    	$teamName = RoleMapper::mapToTeamName($this->getField());
+	    }
         parent::setValue($teamName, true);
     }
 
