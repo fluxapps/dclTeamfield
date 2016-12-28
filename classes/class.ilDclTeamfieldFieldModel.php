@@ -66,4 +66,24 @@ final class ilDclTeamfieldFieldModel extends \ilDclReferenceFieldModel
     }
 
 
+	public function getValidFieldProperties() {
+		return array(ilDclBaseFieldModel::PROP_PLUGIN_HOOK_NAME, ilDclBaseFieldModel::PROP_REFERENCE);
+	}
+
+
+
+
+	public function afterClone($records) {
+		/** @var ilDclReferenceFieldModel $clone */
+		$clone = ilDclCache::getCloneOf($this->getId(), ilDclCache::TYPE_FIELD);
+		$reference_clone = ilDclCache::getCloneOf((int)$clone->getProperty(ilDclBaseFieldModel::PROP_REFERENCE), ilDclCache::TYPE_TABLE);
+		if ($reference_clone) {
+			$this->setProperty(ilDclBaseFieldModel::PROP_REFERENCE, $reference_clone->getId());
+			$this->updateProperties();
+		}
+
+		foreach ($records as $rec) {
+			ilDclCache::getRecordFieldCache($rec, $this)->afterClone();
+		}
+	}
 }

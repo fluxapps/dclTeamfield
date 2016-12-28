@@ -25,7 +25,7 @@ final class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldMode
      */
     public function setValue($value, $omit_parsing = false)
     {
-    	if ($this->isExcelImportMode()) {
+    	if ($value) {
     		$teamName = $value;
 	    } else if ($this->getValue()) { // this is to avoid setting teamfield on editing records, but only on creation
 	    	$teamName = $this->getValue();
@@ -79,4 +79,9 @@ final class ilDclTeamfieldRecordFieldModel extends ilDclReferenceRecordFieldMode
     {
         return $this->excelImportMode;
     }
+
+
+	public function afterClone() {
+		//nothing to do here
+	}
 }
